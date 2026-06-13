@@ -1,0 +1,23 @@
+DATA CLEANING ISSUES LOG — Fernhill Stays
+==================================================
+
+[Issue 1] Exact duplicate rows: removed 8 (kept first occurrence)
+
+[Issue 2] Property name variants (case/spaces) normalised to 5 canonical names. Unmapped after fix: 0
+
+[Issue 3] Status variants normalised to 4 canonical values (Checked-out, Confirmed, Cancelled, No-show). Unmapped: 0
+
+[Issue 4] Booking channel variants normalised; 29 blank values filled as 'Unknown'
+
+[Issue 5] Room type abbreviations normalised (Std→Standard, DLX→Deluxe). Unmapped: 0
+
+[Issue 6] Mixed date formats (DD/MM/YYYY, YYYY-MM-DD, MM-DD-YYYY, 'D Mon YYYY') all parsed to ISO YYYY-MM-DD using dateutil. Unparseable: 0
+
+[Issue 7] 5 rows had negative total_amount_inr — sign error corrected (abs value taken). Rationale: rate and nights both positive.
+
+[Issue 8] 6 rows: total_amount ≠ rate × nights — recomputed total as rate × nights (typos: extra zeros, off-by-10x entries).
+
+[Issue 9] Zero-nights rows: nights inferred from total/rate where possible. 0 rows excluded (could not be reliably fixed).
+
+
+Final: 238 → 230 rows
