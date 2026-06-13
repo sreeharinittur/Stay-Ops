@@ -5,7 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-API_BASE = "http://localhost:5000"
+API_BASE = "https://stay-ops.onrender.com"
 
 # ---------------------------------------------------
 # PAGE CONFIG
